@@ -1,7 +1,9 @@
 'use client'
 
 import Link from "next/link"
-import { useState, useRef } from "react"
+import { useState, useRef, CSSProperties } from "react"
+
+import useViewportDimensions from "@/lib/useViewportDimensions"
 import { Menu } from "@mui/material"
 
 type Props = {
@@ -17,23 +19,19 @@ type Props = {
 }
 
 export default function NavButton({ name, href, hasDropdown, children } : Props) {
+  const {width,} = useViewportDimensions()
   const [menuOpened, setMenuOpened] = useState(false)
   const ref = useRef<HTMLButtonElement>(null)
 
-  if(!hasDropdown && children) throw new Error("A NavButton with children must have a dropdown enabled.")
-
   return (
-    <>
-      
+    <>   
       {hasDropdown ? 
         <button 
           className="transition-colors flex items-baseline gap-1 cursor-pointer font-light text-lg text-amber-950 hover:text-amber-600"
           ref={ref}
           name={name}
           onClick={() => {
-            if(hasDropdown) {
-              setMenuOpened(true)
-            }
+            if(hasDropdown) setMenuOpened(true)
           }}
         >
           {name} 
@@ -55,7 +53,7 @@ export default function NavButton({ name, href, hasDropdown, children } : Props)
           anchorOrigin={{vertical: "bottom", horizontal: "left"}}
           sx={{
             '& .MuiMenu-paper': {
-              marginTop: "19px",
+              marginTop: width > 1280 ? "19px" : "7px",
               borderRadius: '0px',
               padding: "20px",
               boxShadow: "none",
