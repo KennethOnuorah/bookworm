@@ -20,9 +20,9 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className="sticky z-20 flex items-center justify-between px-5 py-4 text-black drop-shadow-md xl:drop-shadow-sm sm:px-20"
+        className="sticky top-0 z-20 flex items-center justify-between px-5 py-4 text-black drop-shadow-md xl:drop-shadow-sm sm:px-20"
         style={{
-          backgroundColor: "#fbe9cf",
+          backgroundColor: "#F4F2E9",
         }}
       >
         <button
@@ -34,12 +34,13 @@ export default function Navbar() {
         <div className="flex items-center gap-8">
           <Link href={"/"} className="w-max -translate-y-1">
             <Image
-              src={"/bookworm_logo.png"}
+              src={"/images/bookworm_logo.png"}
               alt="Bookworm logo"
               width={0}
               height={0}
               sizes="100vw"
               style={{width: "182px", height: "auto"}}
+              priority
             />
           </Link>
           <div className="hidden xl:block">{navButtonContent}</div>
@@ -58,7 +59,8 @@ export default function Navbar() {
       <nav
         className="sticky z-10 flex whitespace-nowrap items-center px-20 py-2 text-black drop-shadow-sm justify-evenly xl:hidden"
         style={{
-          backgroundColor: "#fbe9cf",
+          backgroundColor: "#F4F2E9",
+          top: '71.74px'
         }}
       >
         {navButtonContent}

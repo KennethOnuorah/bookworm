@@ -57,7 +57,7 @@ export default function NavLink({ name, href, hasDropdown, children } : Props) {
               borderRadius: '0px',
               padding: "20px",
               boxShadow: "none",
-              backgroundColor: "#fbe9cf",
+              backgroundColor: "#F4F2E9",
             },
           }}
         >
