@@ -28,6 +28,7 @@ export default function Events() {
 
   return (
     <Carousel
+      autoPlay
       interval={6000}
       duration={1000}
       indicators={false}
