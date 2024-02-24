@@ -1,5 +1,8 @@
 import Events from "./components/Events"
-import NewReleases from "./components/NewReleases"
+import BookCarousel from "./components/BookCarousel"
+import Advertisement from "./components/Advertisement"
+
+export const revalidate = 2628336 //Revalidates data every month
 
 export default function Home() {
   return (
@@ -13,7 +16,30 @@ export default function Home() {
         </div>
         <hr className="mt-8"/>
       </div>
-      <NewReleases/>
+      <BookCarousel
+        title="New Releases"
+        URL={`${process.env.BASE_URL}volumes?q=""+subject:fiction&orderBy=newest&key=${process.env.GOOGLE_BOOKS_API_KEY}`}
+        totalBooksDisplayed={5}
+      />
+      <BookCarousel
+        title="Adventure Awaits!"
+        URL={`${process.env.BASE_URL}volumes?q=""+subject:fiction&orderBy=newest&key=${process.env.GOOGLE_BOOKS_API_KEY}`}
+        totalBooksDisplayed={5}
+      />
+      <Advertisement 
+        src="/images/advertisements/advertisement1.png"
+        href="https://www.amazon.com/Amazon-Kindle-Ereader-Family/b?ie=UTF8&node=6669702011"
+      />
+      <BookCarousel
+        title="For The History Geeks"
+        URL={`${process.env.BASE_URL}volumes?q=""+subject:fiction&orderBy=newest&key=${process.env.GOOGLE_BOOKS_API_KEY}`}
+        totalBooksDisplayed={5}
+      />
+      <BookCarousel
+        title="Love Is In The Air"
+        URL={`${process.env.BASE_URL}volumes?q=""+subject:fiction&orderBy=newest&key=${process.env.GOOGLE_BOOKS_API_KEY}`}
+        totalBooksDisplayed={5}
+      />
     </main>
   )
 }
