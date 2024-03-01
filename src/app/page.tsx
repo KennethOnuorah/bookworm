@@ -2,29 +2,31 @@ import Events from "./components/Events"
 import BookCarousel from "./components/BookCarousel"
 import Advertisement from "./components/Advertisement"
 
-export const revalidate = 2628336 //Revalidates data every month
+export const revalidate = 2628336
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main>
       <Events/>
       <div className="mt-8 px-8 text-center font-bold">
-        Find The Book That's Right For You!
+        Find The Book That&apos;s Right For You!
         <br/>
-        <div className="text-sm font-normal">
-          With over 6 million books ready to ship, 2.8 million eBooks, and 400,000 audiobooks available for download, you'll never miss out!
+        <div className="text-sm font-normal italic">
+          With over 6 million books ready to ship, 2.8 million eBooks, and 400,000 audiobooks available for download, you&apos;ll never miss out!
         </div>
         <hr className="mt-8"/>
       </div>
       <BookCarousel
         title="New Releases"
-        URL={`${process.env.BASE_URL}volumes?q=""+subject:fiction&orderBy=newest&key=${process.env.GOOGLE_BOOKS_API_KEY}`}
-        totalBooksDisplayed={5}
+        query=""
+        href="/new"
+        booksPerView={5}
       />
       <BookCarousel
-        title="Adventure Awaits!"
-        URL={`${process.env.BASE_URL}volumes?q=""+subject:fiction&orderBy=newest&key=${process.env.GOOGLE_BOOKS_API_KEY}`}
-        totalBooksDisplayed={5}
+        title="Spook-tacular!"
+        query=""
+        href="/genres/horror"
+        booksPerView={5}
       />
       <Advertisement 
         src="/images/advertisements/advertisement1.png"
@@ -32,13 +34,15 @@ export default function Home() {
       />
       <BookCarousel
         title="For The History Geeks"
-        URL={`${process.env.BASE_URL}volumes?q=""+subject:fiction&orderBy=newest&key=${process.env.GOOGLE_BOOKS_API_KEY}`}
-        totalBooksDisplayed={5}
+        query=""
+        href="/genres/romance"
+        booksPerView={5}
       />
       <BookCarousel
         title="Love Is In The Air"
-        URL={`${process.env.BASE_URL}volumes?q=""+subject:fiction&orderBy=newest&key=${process.env.GOOGLE_BOOKS_API_KEY}`}
-        totalBooksDisplayed={5}
+        query=""
+        href="/genres/romance"
+        booksPerView={5}
       />
     </main>
   )
