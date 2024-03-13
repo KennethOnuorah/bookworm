@@ -18,4 +18,15 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 
 .slick-slide > div{
   margin: 0 2rem;
+  /* box-shadow: 0 10px 12px 4px rgba(0, 0, 0, 0.285); */
+}
+
+.slick-list {
+  overflow: visible;
+}
+
+@media screen and (max-width: 750px) {
+  .slick-slide > div{
+    margin: 0 0.75rem;
+  }
 }
